@@ -1,0 +1,550 @@
+{
+  "generatedAt": "2026-11-01T14:24:53.703Z",
+  "minimumWords": 800,
+  "pages": [
+    {
+      "path": "/",
+      "slug": "inicio",
+      "words": 1464,
+      "h1": 1,
+      "title": "Motoboy na Zona Leste e Norte de SP | Motoboy Express",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-bras",
+      "slug": "motoboy-bras",
+      "words": 1111,
+      "h1": 1,
+      "title": "Motoboy no Brás para lojas e atacado de roupas | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-pari",
+      "slug": "motoboy-pari",
+      "words": 1007,
+      "h1": 1,
+      "title": "Motoboy no Pari para atacadistas e importadores | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-tatuape",
+      "slug": "motoboy-tatuape",
+      "words": 1004,
+      "h1": 1,
+      "title": "Motoboy no Tatuapé para clínicas, escritórios e comércio | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-vila-guilherme",
+      "slug": "motoboy-vila-guilherme",
+      "words": 991,
+      "h1": 1,
+      "title": "Motoboy na Vila Guilherme para oficinas e autopeças | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-parque-novo-mundo",
+      "slug": "motoboy-parque-novo-mundo",
+      "words": 993,
+      "h1": 1,
+      "title": "Motoboy no Parque Novo Mundo para transportadoras | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-belem",
+      "slug": "motoboy-belem",
+      "words": 975,
+      "h1": 1,
+      "title": "Motoboy no Belém para gráficas e comércio local | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-mooca",
+      "slug": "motoboy-mooca",
+      "words": 920,
+      "h1": 1,
+      "title": "Motoboy na Mooca para comércio e oficinas | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-caninde",
+      "slug": "motoboy-caninde",
+      "words": 958,
+      "h1": 1,
+      "title": "Motoboy no Canindé para feiras e comércio popular | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-analia-franco",
+      "slug": "motoboy-analia-franco",
+      "words": 917,
+      "h1": 1,
+      "title": "Motoboy no Anália Franco para clínicas e boutiques | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-ponte-pequena-armenia",
+      "slug": "motoboy-ponte-pequena-armenia",
+      "words": 912,
+      "h1": 1,
+      "title": "Motoboy na Armênia e Ponte Pequena para eixo Centro-Norte | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/servicos/motoboy-confeccao-roupas-bras",
+      "slug": "motoboy-confeccao-roupas-bras",
+      "words": 958,
+      "h1": 1,
+      "title": "Motoboy para confecção e roupas no Brás | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/servicos/motoboy-transportadoras-canhotos-nf",
+      "slug": "motoboy-transportadoras-canhotos-nf",
+      "words": 879,
+      "h1": 1,
+      "title": "Motoboy para canhotos e notas fiscais | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/servicos/motoboy-autopecas-oficinas",
+      "slug": "motoboy-autopecas-oficinas",
+      "words": 884,
+      "h1": 1,
+      "title": "Motoboy para autopeças e oficinas | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/servicos/motoboy-clinicas-proteses-dentarias",
+      "slug": "motoboy-clinicas-proteses-dentarias",
+      "words": 930,
+      "h1": 1,
+      "title": "Motoboy para clínicas e próteses dentárias | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/servicos/motoboy-cartorios-reconhecimento-firma",
+      "slug": "motoboy-cartorios-reconhecimento-firma",
+      "words": 967,
+      "h1": 1,
+      "title": "Motoboy para cartórios e reconhecimento de firma | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/servicos/motoboy-ecommerce-coleta-agencias-correios",
+      "slug": "motoboy-ecommerce-coleta-agencias-correios",
+      "words": 897,
+      "h1": 1,
+      "title": "Motoboy para e-commerce e coleta em agências | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/servicos/motoboy-graficas-amostras-impressos",
+      "slug": "motoboy-graficas-amostras-impressos",
+      "words": 951,
+      "h1": 1,
+      "title": "Motoboy para gráficas e amostras impressas | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/servicos/motoboy-feirinha-madrugada",
+      "slug": "motoboy-feirinha-madrugada",
+      "words": 875,
+      "h1": 1,
+      "title": "Motoboy para Feirinha da Madrugada | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/servicos/motoboy-escritorios-contabilidade-advocacia",
+      "slug": "motoboy-escritorios-contabilidade-advocacia",
+      "words": 950,
+      "h1": 1,
+      "title": "Motoboy para escritórios e contabilidade | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/servicos/motoboy-maquininhas-cartao-ti",
+      "slug": "motoboy-maquininhas-cartao-ti",
+      "words": 958,
+      "h1": 1,
+      "title": "Motoboy para maquininhas e equipamentos de TI | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/rotas/motoboy-bras-para-bom-retiro",
+      "slug": "motoboy-bras-para-bom-retiro",
+      "words": 918,
+      "h1": 1,
+      "title": "Motoboy Brás para Bom Retiro | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/rotas/motoboy-bras-para-tatuape",
+      "slug": "motoboy-bras-para-tatuape",
+      "words": 958,
+      "h1": 1,
+      "title": "Motoboy Brás para Tatuapé | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/rotas/motoboy-parque-novo-mundo-para-aeroporto-guarulhos",
+      "slug": "motoboy-parque-novo-mundo-para-aeroporto-guarulhos",
+      "words": 913,
+      "h1": 1,
+      "title": "Motoboy Parque Novo Mundo para Aeroporto de Guarulhos | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/rotas/motoboy-vila-guilherme-para-centro-sp",
+      "slug": "motoboy-vila-guilherme-para-centro-sp",
+      "words": 965,
+      "h1": 1,
+      "title": "Motoboy Vila Guilherme para Centro de São Paulo | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/rotas/motoboy-pari-para-bras",
+      "slug": "motoboy-pari-para-bras",
+      "words": 951,
+      "h1": 1,
+      "title": "Motoboy Pari para Brás | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/rotas/motoboy-tatuape-para-avenida-paulista",
+      "slug": "motoboy-tatuape-para-avenida-paulista",
+      "words": 970,
+      "h1": 1,
+      "title": "Motoboy Tatuapé para Avenida Paulista | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/tabela-precos-motoboy-zona-leste",
+      "slug": "tabela-precos-motoboy-zona-leste",
+      "words": 928,
+      "h1": 1,
+      "title": "Tabela de preços de motoboy na Zona Leste | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/limites-carga-bau-moto",
+      "slug": "limites-carga-bau-moto",
+      "words": 947,
+      "h1": 1,
+      "title": "Limites de carga para baú de moto | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/calculadora-corrida-motoboy",
+      "slug": "calculadora-corrida-motoboy",
+      "words": 1023,
+      "h1": 1,
+      "title": "Calculadora de corrida de motoboy | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/motoboy-para-empresas-faturamento",
+      "slug": "motoboy-para-empresas-faturamento",
+      "words": 941,
+      "h1": 1,
+      "title": "Motoboy para empresas com faturamento quinzenal | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    },
+    {
+      "path": "/termos-e-condicoes-transporte",
+      "slug": "termos-e-condicoes-transporte",
+      "words": 911,
+      "h1": 1,
+      "title": "Termos e condições de transporte | ZaptLog",
+      "checks": {
+        "words": true,
+        "oneH1": true,
+        "title": true,
+        "description": true,
+        "links": true,
+        "assets": true
+      },
+      "brokenLinks": [],
+      "missingAssets": []
+    }
+  ]
+}
