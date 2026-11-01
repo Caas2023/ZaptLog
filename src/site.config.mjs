@@ -1,5 +1,5 @@
 export const siteConfig = {
-  domain: 'https://motoboyexpressp.com.br',
+  domain: 'https://zaptlog.vercel.app',
   businessName: 'ZaptLog — Expresso & Logística',
   whatsappNumber: '5511957248425',
   whatsappDisplay: '(11) 95724-8425',

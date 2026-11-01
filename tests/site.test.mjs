@@ -74,7 +74,7 @@ test('sitemap e robots cobrem todas as páginas e não usam domínio placeholder
   const sitemap = readFileSync(join(root, 'dist/sitemap.xml'), 'utf8');
   const robots = readFileSync(join(root, 'dist/robots.txt'), 'utf8');
   assert.equal((sitemap.match(/<loc>/g) || []).length, 32);
-  assert.match(robots, /Sitemap: https:\/\/motoboyexpressp\.com\.br\/sitemap\.xml/);
+  assert.match(robots, /Sitemap: https:\/\/zaptlog\.vercel\.app\/sitemap\.xml/);
   assert.doesNotMatch(sitemap, /seudominio/);
 });
 

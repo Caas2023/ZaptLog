@@ -31,8 +31,63 @@ export function quoteMessageFor(page) {
 
 export function whatsappUrlFor(page) {
   const text = quoteMessageFor(page);
-  return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(text)}`;
+  return `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}&text=${encodeURIComponent(text)}`;
 }
+
+const geoCoordinates = {
+  'Brás': { latitude: -23.5385, longitude: -46.6180 },
+  'Pari': { latitude: -23.5280, longitude: -46.6150 },
+  'Tatuapé': { latitude: -23.5400, longitude: -46.5770 },
+  'Vila Guilherme': { latitude: -23.5130, longitude: -46.6020 },
+  'Parque Novo Mundo': { latitude: -23.5010, longitude: -46.5750 },
+  'Belém': { latitude: -23.5398, longitude: -46.5985 },
+  'Mooca': { latitude: -23.5570, longitude: -46.5980 },
+  'Canindé': { latitude: -23.5240, longitude: -46.6210 },
+  'Jardim Anália Franco': { latitude: -23.5580, longitude: -46.5620 },
+  'Ponte Pequena e Armênia': { latitude: -23.5270, longitude: -46.6270 },
+  'Bom Retiro': { latitude: -23.5290, longitude: -46.6370 },
+  'Centro de São Paulo': { latitude: -23.5505, longitude: -46.6333 },
+  'Avenida Paulista': { latitude: -23.5615, longitude: -46.6560 },
+  'Aeroporto de Guarulhos': { latitude: -23.4356, longitude: -46.4731 },
+};
+
+export function keywordsFor(page) {
+  if (page.cluster === 'neighborhood') {
+    return [
+      `motoboy ${page.area.toLowerCase()}`,
+      `motoboy no ${page.area.toLowerCase()}`,
+      `entrega rápida ${page.area.toLowerCase()}`,
+      `serviço de motoboy ${page.area.toLowerCase()}`,
+      `frete moto ${page.area.toLowerCase()}`,
+      `motoboy ${page.facts?.audience ? page.facts.audience.toLowerCase() : 'empresas'}`
+    ];
+  }
+  if (page.cluster === 'service') {
+    return [
+      page.h1.toLowerCase(),
+      `motoboy ${page.area.toLowerCase()}`,
+      `entrega rápida ${page.area.toLowerCase()}`,
+      'motoboy para empresas',
+      'motoboy baú são paulo'
+    ];
+  }
+  if (page.cluster === 'route') {
+    return [
+      `motoboy ${page.area.toLowerCase()}`,
+      `entrega ${page.area.toLowerCase()}`,
+      'rota expressa motoboy sp',
+      'motoboy ponto a ponto'
+    ];
+  }
+  return [
+    'motoboy são paulo',
+    'motoboy zona leste sp',
+    'motoboy zona norte sp',
+    'entrega rápida moto baú',
+    'motoboy brás pari tatuapé'
+  ];
+}
+
 
 const clusterNames = {
   home: 'Central de rotas',
@@ -168,9 +223,9 @@ function header(page, pages) {
       <nav id="site-nav" class="site-nav" aria-label="Navegação principal">
         <a class="nav-link" href="/">Início</a>
         ${groups}
-        <a class="nav-link nav-link--phone" href="https://wa.me/${siteConfig.whatsappNumber}">${siteConfig.whatsappDisplay}</a>
+        <a class="nav-link nav-link--phone" href="https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}" target="_blank" rel="nofollow noopener noreferrer">${siteConfig.whatsappDisplay}</a>
       </nav>
-      <a class="header-cta" href="${page ? whatsappUrlFor(page) : `https://wa.me/${siteConfig.whatsappNumber}`}" target="_blank" rel="noopener noreferrer">Pedir cotação <span aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="${page ? whatsappUrlFor(page) : `https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}`}" target="_blank" rel="nofollow noopener noreferrer">Pedir cotação <span aria-hidden="true">↗</span></a>
     </div>
     <div class="reading-progress" aria-hidden="true"><span data-reading-progress></span></div>
   </header>`;
@@ -219,7 +274,7 @@ function hero(page) {
         <h1>${esc(page.h1)}</h1>
         <p class="hero-lead">${esc(page.description)}</p>
         <div class="hero-actions">
-          <a class="button button--primary" href="${whatsappUrlFor(page)}" target="_blank" rel="noopener noreferrer">Solicitar cotação <span aria-hidden="true">↗</span></a>
+          <a class="button button--primary" href="${whatsappUrlFor(page)}" target="_blank" rel="nofollow noopener noreferrer">Solicitar cotação <span aria-hidden="true">↗</span></a>
           <a class="button button--ghost" href="/como-solicitar-cotacao-motoboy/">Como funciona a cotação</a>
         </div>
         <ul class="hero-points" aria-label="Resumo do atendimento">
@@ -288,7 +343,7 @@ function checklist(entry, page) {
     <ul class="checklist-grid">
       ${entry.checklist.items.map((item, index) => `<li><span class="check-number">${String(index + 1).padStart(2, '0')}</span><span>${esc(item)}</span></li>`).join('')}
     </ul>
-    <a class="text-link" href="${ctaUrl}" target="_blank" rel="noopener noreferrer">Já conferi, quero cotar no WhatsApp <span aria-hidden="true">→</span></a>
+    <a class="text-link" href="${ctaUrl}" target="_blank" rel="nofollow noopener noreferrer">Já conferi, quero cotar no WhatsApp <span aria-hidden="true">→</span></a>
   </section>`;
 }
 
@@ -337,7 +392,7 @@ function editorialAside(entry, page) {
           <div><dt>Escopo</dt><dd>1 coleta · 1 entrega</dd></div>
           <div><dt>Cotação</dt><dd>Sob medida</dd></div>
         </dl>
-        <a class="button button--primary button--full" href="${ctaUrl}" target="_blank" rel="noopener noreferrer">Pedir cotação <span aria-hidden="true">↗</span></a>
+        <a class="button button--primary button--full" href="${ctaUrl}" target="_blank" rel="nofollow noopener noreferrer">Pedir cotação <span aria-hidden="true">↗</span></a>
         <p class="aside-note">Informe as medidas do volume e os endereços. A central prepara a cotação e confirma a disponibilidade.</p>
       </div>
     </div>
@@ -507,7 +562,7 @@ function footer(pages) {
       <div class="footer-brand">
         ${brand()}
         <p>Entregas por moto para empresas e comércio local em São Paulo. Uma coleta, uma entrega e conferência humana antes do despacho.</p>
-        <a class="footer-phone" href="https://wa.me/${siteConfig.whatsappNumber}">${siteConfig.whatsappDisplay}</a>
+        <a class="footer-phone" href="https://api.whatsapp.com/send?phone=${siteConfig.whatsappNumber}" target="_blank" rel="nofollow noopener noreferrer">${siteConfig.whatsappDisplay}</a>
         <address>${esc(siteConfig.address.street)}<br>${esc(siteConfig.address.neighborhood)}, ${esc(siteConfig.address.city)} — ${esc(siteConfig.address.state)}<br>${esc(siteConfig.address.postalCode)}</address>
       </div>
       ${column('Regiões', regions.slice(0, 6), '<a href="/#diretorio">Ver todas as regiões</a>')}
@@ -522,12 +577,15 @@ function footer(pages) {
   </footer>`;
 }
 
-function schema(page) {
+function schema(page, entry) {
   const business = {
     '@type': 'LocalBusiness',
     '@id': `${siteConfig.domain}/#business`,
     name: siteConfig.businessName,
+    url: siteConfig.domain,
+    image: `${siteConfig.domain}/assets/images/optimized/motoboy-zaptlog.jpg`,
     telephone: `+${siteConfig.whatsappNumber}`,
+    paymentAccepted: 'PIX, Faturamento Bancário, Cartão',
     address: {
       '@type': 'PostalAddress',
       streetAddress: siteConfig.address.street,
@@ -536,13 +594,76 @@ function schema(page) {
       postalCode: siteConfig.address.postalCode,
       addressCountry: siteConfig.address.country,
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: -23.5398,
+      longitude: -46.5985,
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '07:00',
+        closes: '19:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Saturday'],
+        opens: '08:00',
+        closes: '14:00',
+      },
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: `+${siteConfig.whatsappNumber}`,
+      contactType: 'customer support',
+      areaServed: 'BR',
+      availableLanguage: ['Portuguese'],
+    },
   };
-  const areaServed =
-    page.cluster === 'route'
-      ? page.area.split(' para ').map((name) => ({ '@type': 'Place', name }))
-      : page.cluster === 'neighborhood'
-        ? { '@type': 'Neighborhood', name: page.area }
-        : { '@type': 'City', name: 'São Paulo' };
+
+  const coords = geoCoordinates[page.area];
+  let areaServed;
+  if (page.cluster === 'route') {
+    const [from, to] = page.area.split(' para ');
+    areaServed = [
+      {
+        '@type': 'Place',
+        name: from,
+        ...(geoCoordinates[from] ? { geo: { '@type': 'GeoCoordinates', ...geoCoordinates[from] } } : {}),
+      },
+      {
+        '@type': 'Place',
+        name: to,
+        ...(geoCoordinates[to] ? { geo: { '@type': 'GeoCoordinates', ...geoCoordinates[to] } } : {}),
+      },
+    ];
+  } else if (page.cluster === 'neighborhood') {
+    areaServed = {
+      '@type': 'AdministrativeArea',
+      name: page.area,
+      containedInPlace: {
+        '@type': 'City',
+        name: 'São Paulo',
+        addressRegion: 'SP',
+        addressCountry: 'BR',
+      },
+      ...(coords ? { geo: { '@type': 'GeoCoordinates', ...coords } } : {}),
+    };
+  } else {
+    areaServed = {
+      '@type': 'City',
+      name: 'São Paulo',
+      addressRegion: 'SP',
+      addressCountry: 'BR',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: -23.5505,
+        longitude: -46.6333,
+      },
+    };
+  }
+
   const type =
     page.cluster === 'tool'
       ? page.slug === 'conferir-medidas-bau-moto'
@@ -551,30 +672,64 @@ function schema(page) {
       : page.cluster === 'service'
         ? 'Service'
         : 'DeliveryService';
+
+  const keywordsList = keywordsFor(page);
+
   const main = {
     '@type': type,
-    '@id': `${url(page.path)}#page`,
+    '@id': `${url(page.path)}#service`,
     name: page.h1,
     description: page.description,
     url: url(page.path),
+    serviceType: page.cluster === 'neighborhood' ? `Entrega expressa por motoboy no ${page.area}` : page.h1,
+    keywords: keywordsList.join(', '),
     areaServed,
     provider: { '@id': `${siteConfig.domain}/#business` },
     isPartOf: { '@id': `${siteConfig.domain}/#business` },
+    ...(coords ? {
+      geo: {
+        '@type': 'GeoCoordinates',
+        ...coords,
+      },
+    } : {}),
   };
+
   const crumbs = [{ '@type': 'ListItem', position: 1, name: 'Início', item: url('/') }];
   if (page.path !== '/') {
     crumbs.push({ '@type': 'ListItem', position: 2, name: clusterShort[page.cluster] || 'Página' });
     crumbs.push({ '@type': 'ListItem', position: 3, name: navigationLabel(page), item: url(page.path) });
   }
+
+  const graph = [
+    main,
+    business,
+    { '@type': 'BreadcrumbList', '@id': `${url(page.path)}#breadcrumb`, itemListElement: crumbs },
+  ];
+
+  if (entry && entry.faq && entry.faq.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${url(page.path)}#faq`,
+      mainEntity: entry.faq.map(([question, answer]) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: answer,
+        },
+      })),
+    });
+  }
+
   return json({
     '@context': 'https://schema.org',
-    '@graph': [main, business, { '@type': 'BreadcrumbList', itemListElement: crumbs }],
+    '@graph': graph,
   });
 }
 
 function mobileCta(page) {
   const ctaUrl = page ? whatsappUrlFor(page) : '#cotacao';
-  return `<a class="mobile-cta" href="${ctaUrl}" target="_blank" rel="noopener noreferrer"><span>Pedir cotação</span><span aria-hidden="true">↗</span></a>`;
+  return `<a class="mobile-cta" href="${ctaUrl}" target="_blank" rel="nofollow noopener noreferrer"><span>Pedir cotação</span><span aria-hidden="true">↗</span></a>`;
 }
 
 export function renderPage(page, pages) {
@@ -604,7 +759,7 @@ export function renderPage(page, pages) {
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" as="image" href="/assets/images/${asset.file}" fetchpriority="high">
   <link rel="stylesheet" href="/assets/site.css">
-  <script type="application/ld+json">${schema(page)}</script>
+  <script type="application/ld+json">${schema(page, entry)}</script>
 </head>
 <body class="cluster-${page.cluster}">
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
