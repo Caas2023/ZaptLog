@@ -49,6 +49,14 @@ const geoCoordinates = {
   'Centro de São Paulo': { latitude: -23.5505, longitude: -46.6333 },
   'Avenida Paulista': { latitude: -23.5615, longitude: -46.6560 },
   'Aeroporto de Guarulhos': { latitude: -23.4356, longitude: -46.4731 },
+  'Itaim Bibi': { latitude: -23.5845, longitude: -46.6780 },
+  'Santana': { latitude: -23.5020, longitude: -46.6250 },
+  'Santo André': { latitude: -23.6570, longitude: -46.5310 },
+  'Santa Efigênia': { latitude: -23.5380, longitude: -46.6385 },
+  'Faria Lima': { latitude: -23.5790, longitude: -46.6870 },
+  'Rodoviária do Tietê': { latitude: -23.5165, longitude: -46.6245 },
+  'Aeroporto de Congonhas': { latitude: -23.6260, longitude: -46.6560 },
+  'Zona Leste': { latitude: -23.5400, longitude: -46.5770 },
 };
 
 export function keywordsFor(page) {

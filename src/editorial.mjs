@@ -1,12 +1,14 @@
 import { editorialLocal } from './editorial-local.mjs';
 import { editorialServices } from './editorial-services.mjs';
 import { editorialRoutesTools } from './editorial-routes-tools.mjs';
+import { editorialNewRoutes } from './editorial-new-routes.mjs';
 import { editorialTools } from './editorial-tools.mjs';
 
 const rawEditorial = {
   ...editorialLocal,
   ...editorialServices,
   ...editorialRoutesTools,
+  ...editorialNewRoutes,
   ...editorialTools,
 };
 

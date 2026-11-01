@@ -27,7 +27,20 @@ const services = [
 ].map(([slug,h1,detail,area]) => ({ slug, path:`/servicos/${slug}`, cluster:'service', area, h1, title:`${h1} | Motoboy Express SP`, description:`${detail} Atendimento humano por WhatsApp, com triagem do baú antes da coleta.`, facts:{ detail }, relatedPaths:['/como-solicitar-cotacao-motoboy','/limites-carga-bau-moto', `/${localPages.find(p=>p.area===area)?.slug||'motoboy-bras'}`] }));
 
 const routes = [
- ['motoboy-bras-para-bom-retiro','Brás','Bom Retiro','confecção entre polos têxteis'], ['motoboy-bras-para-tatuape','Brás','Tatuapé','atacado e varejo da Zona Leste'], ['motoboy-parque-novo-mundo-para-aeroporto-guarulhos','Parque Novo Mundo','Aeroporto de Guarulhos','documentos e itens compatíveis com despacho'], ['motoboy-vila-guilherme-para-centro-sp','Vila Guilherme','Centro de São Paulo','autopeças compactas e malotes'], ['motoboy-pari-para-bras','Pari','Brás','utilidades, documentos e reposição pequena'], ['motoboy-tatuape-para-avenida-paulista','Tatuapé','Avenida Paulista','malotes e documentos corporativos']
+  ['motoboy-bras-para-bom-retiro','Brás','Bom Retiro','confecção entre polos têxteis'],
+  ['motoboy-bras-para-tatuape','Brás','Tatuapé','atacado e varejo da Zona Leste'],
+  ['motoboy-parque-novo-mundo-para-aeroporto-guarulhos','Parque Novo Mundo','Aeroporto de Guarulhos','documentos e itens compatíveis com despacho'],
+  ['motoboy-vila-guilherme-para-centro-sp','Vila Guilherme','Centro de São Paulo','autopeças compactas e malotes'],
+  ['motoboy-pari-para-bras','Pari','Brás','utilidades, documentos e reposição pequena'],
+  ['motoboy-tatuape-para-avenida-paulista','Tatuapé','Avenida Paulista','malotes e documentos corporativos'],
+  ['motoboy-bras-para-itaim-bibi','Brás','Itaim Bibi','amostras e mostruários de confecção para boutiques'],
+  ['motoboy-bras-para-santana','Brás','Santana','reposição ágil de confecção e pedidos para a Zona Norte'],
+  ['motoboy-bras-para-santo-andre','Brás','Santo André','despacho avulso de atacado de roupas para o ABC'],
+  ['motoboy-pari-para-santa-efigenia','Pari','Santa Efigênia','componentes eletrônicos, cabos e suprimentos'],
+  ['motoboy-tatuape-para-faria-lima','Tatuapé','Faria Lima','malotes jurídicos, contratos e documentos corporativos'],
+  ['motoboy-mooca-para-centro-sp','Mooca','Centro de São Paulo','documentos fiscais, cartórios e certidões'],
+  ['motoboy-bras-para-rodoviaria-tiete','Brás','Rodoviária do Tietê','despacho expresso de encomendas para ônibus'],
+  ['motoboy-zona-leste-para-congonhas','Zona Leste','Aeroporto de Congonhas','documentos e encomendas para o terminal de cargas']
 ].map(([slug,from,to,detail]) => ({slug,path:`/rotas/${slug}`,cluster:'route',area:`${from} para ${to}`,h1:`Motoboy do ${from} para ${to}`,title:`Motoboy ${from} para ${to} | Motoboy Express SP`,description:`Entrega de moto do ${from} para ${to} para ${detail}. Confirme carga e receba cotação no WhatsApp.`,facts:{detail},relatedPaths:['/como-solicitar-cotacao-motoboy','/limites-carga-bau-moto']}));
 
 const tools = [

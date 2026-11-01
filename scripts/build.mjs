@@ -10,7 +10,7 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const dist = join(root, 'dist');
 
 function validate() {
-  if (pages.length !== 32) throw new Error(`Esperadas 32 páginas; recebidas ${pages.length}.`);
+  if (pages.length < 32) throw new Error(`Esperadas no mínimo 32 páginas; recebidas ${pages.length}.`);
   const paths = new Set(); const slugs = new Set(); const titles = new Set(); const descriptions = new Set();
   for (const page of pages) {
     for (const key of ['slug','path','cluster','title','description','h1']) if (!page[key]) throw new Error(`Campo ${key} ausente em uma página.`);
