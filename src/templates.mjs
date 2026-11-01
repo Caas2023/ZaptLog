@@ -17,7 +17,7 @@ const json = (value) => JSON.stringify(value).replace(/</g, '\\u003c');
 
 export function quoteMessageFor(page) {
   if (page.cluster === 'neighborhood') {
-    const prep = ['Vila Guilherme', 'Mooca', 'Ponte Pequena e Armênia'].includes(page.area) ? 'da' : 'do';
+    const prep = ['Vila Guilherme', 'Mooca', 'Ponte Pequena e Armênia', 'Vila Medeiros', 'Vila Maria'].includes(page.area) ? 'da' : 'do';
     return `Olá! Preciso de uma cotação para o serviço ${prep} ${page.area} - ZaptLog.`;
   }
   if (page.cluster === 'service') {
@@ -57,6 +57,8 @@ const geoCoordinates = {
   'Rodoviária do Tietê': { latitude: -23.5165, longitude: -46.6245 },
   'Aeroporto de Congonhas': { latitude: -23.6260, longitude: -46.6560 },
   'Zona Leste': { latitude: -23.5400, longitude: -46.5770 },
+  'Vila Medeiros': { latitude: -23.4910, longitude: -46.5840 },
+  'Vila Maria': { latitude: -23.5090, longitude: -46.5880 },
 };
 
 export function keywordsFor(page) {

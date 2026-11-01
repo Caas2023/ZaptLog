@@ -8,7 +8,9 @@ const neighborhoods = [
   ['motoboy-mooca','Mooca','Motoboy na Mooca para comércio e oficinas','Rua da Mooca e Avenida Paes de Barros','comércio tradicional, oficinas e escritórios','peças, contratos e pedidos embalados','servicos/motoboy-autopecas-oficinas','rotas/motoboy-tatuape-para-avenida-paulista'],
   ['motoboy-caninde','Canindé','Motoboy no Canindé para feiras e comércio popular','Rua Canindé e Avenida Cruzeiro do Sul','feiras populares, sacoleiros e comércio','amostras, documentos e pacotes pequenos','servicos/motoboy-feirinha-madrugada','rotas/motoboy-pari-para-bras'],
   ['motoboy-analia-franco','Jardim Anália Franco','Motoboy no Anália Franco para clínicas e boutiques','Rua Eleonora Cintra e Shopping Anália Franco','clínicas, estética e comércio premium','documentos, pequenas encomendas e insumos','servicos/motoboy-clinicas-proteses-dentarias','rotas/motoboy-bras-para-tatuape'],
-  ['motoboy-ponte-pequena-armenia','Ponte Pequena e Armênia','Motoboy na Armênia e Ponte Pequena para eixo Centro-Norte','Avenida do Estado e Marginal Tietê','empresas do eixo logístico Centro-Norte','malotes, notas e pacotes pequenos','servicos/motoboy-escritorios-contabilidade-advocacia','rotas/motoboy-vila-guilherme-para-centro-sp']
+  ['motoboy-ponte-pequena-armenia','Ponte Pequena e Armênia','Motoboy na Armênia e Ponte Pequena para eixo Centro-Norte','Avenida do Estado e Marginal Tietê','empresas do eixo logístico Centro-Norte','malotes, notas e pacotes pequenos','servicos/motoboy-escritorios-contabilidade-advocacia','rotas/motoboy-vila-guilherme-para-centro-sp'],
+  ['motoboy-vila-medeiros','Vila Medeiros','Motoboy na Vila Medeiros para confecções e oficinas','Avenida Gustavo Adolfo, Roland Garros e Ataliba Vieira','oficinas de costura, facções e comércio local','peças cortadas, aviamentos e pedidos embalados','servicos/motoboy-confeccao-roupas-bras','rotas/motoboy-bras-para-santana'],
+  ['motoboy-vila-maria','Vila Maria','Motoboy na Vila Maria para logística e transportadoras','Avenida Guilherme Cotching, Nadir Dias de Figueiredo e Marginal Tietê','transportadoras, operadores logísticos e oficinas','canhotos, CTe, notas fiscais e peças técnicas','servicos/motoboy-transportadoras-canhotos-nf','rotas/motoboy-vila-guilherme-para-centro-sp']
 ];
 
 const localPages = neighborhoods.map(([slug, area, h1, streets, audience, cargo, service, route]) => ({ slug, path: `/${slug}`, cluster: 'neighborhood', area, h1, title: `${h1} | Motoboy Express SP`, description: `Chame motoboy para ${area}. Atendimento por WhatsApp para ${audience}; só itens compatíveis com baú fechado.`, facts: { streets, audience, cargo }, relatedPaths: [`/${service}`, `/${route}`, '/limites-carga-bau-moto'] }));
@@ -23,7 +25,15 @@ const services = [
  ['motoboy-graficas-amostras-impressos','Motoboy para gráficas e amostras impressas','Entrega de provas de impressão, materiais compactos e embalagens pequenas.','Belém'],
  ['motoboy-feirinha-madrugada','Motoboy para Feirinha da Madrugada','Coleta organizada de volumes pequenos para lojistas e compradores do polo de confecção.','Brás'],
  ['motoboy-escritorios-contabilidade-advocacia','Motoboy para escritórios e contabilidade','Malotes de contratos, livros fiscais e documentos corporativos sob conferência.','Tatuapé'],
- ['motoboy-maquininhas-cartao-ti','Motoboy para maquininhas e equipamentos de TI','Entrega de POS, roteadores e pequenos acessórios para pontos comerciais.','Vila Guilherme']
+ ['motoboy-maquininhas-cartao-ti','Motoboy para maquininhas e equipamentos de TI','Entrega de POS, roteadores e pequenos acessórios para pontos comerciais.','Vila Guilherme'],
+ ['motoboy-shopping-vautier','Motoboy no Shopping Vautier e Vautier Premium','Coleta rápida em boxes e lojas para envio ágil de peças de confecção embaladas no baú.','Brás'],
+ ['motoboy-shopping-total-bras','Motoboy no Shopping Total Brás','Despacho expresso de jeanswear, alfaiataria e mostruários com retirada ágil na Maria Marcolina.','Brás'],
+ ['motoboy-shopping-mega-polo-moda','Motoboy no Mega Polo Moda','Envio dedicado de peças piloto, coleções e mostruários para boutiques com protocolo formal.','Brás'],
+ ['motoboy-shopping-all-bras','Motoboy no Shopping All Brás','Coleta de pacotes e pedidos embalados no atacado de confecções e calçados da Rodrigues dos Santos.','Brás'],
+ ['motoboy-galeria-page-bras','Motoboy na Galeria Pagé Brás','Transporte cuidadoso de pequenos eletrônicos, cabos e acessórios com baú lacrado.','Brás'],
+ ['motoboy-estacionamento-shopping-caninde','Motoboy para Estacionamento de Ônibus do Shopping Canindé','Entrega pontual de compras diretamente no bagageiro de ônibus de excursão com confirmação.','Canindé'],
+ ['motoboy-estacionamento-feirinha-madrugada','Motoboy para Estacionamento de Ônibus da Feirinha da Madrugada','Despacho prioritário para sacoleiros e guias nos bolsões da Monsenhor de Andrade.','Brás'],
+ ['motoboy-despacho-onibus-excursao-bras','Motoboy para Despacho em Ônibus de Excursão no Brás','Entrega direta ao motorista de ônibus de viagem no Brás e Pari com comprovante fotográfico.','Brás']
 ].map(([slug,h1,detail,area]) => ({ slug, path:`/servicos/${slug}`, cluster:'service', area, h1, title:`${h1} | Motoboy Express SP`, description:`${detail} Atendimento humano por WhatsApp, com triagem do baú antes da coleta.`, facts:{ detail }, relatedPaths:['/como-solicitar-cotacao-motoboy','/limites-carga-bau-moto', `/${localPages.find(p=>p.area===area)?.slug||'motoboy-bras'}`] }));
 
 const routes = [
