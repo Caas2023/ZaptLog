@@ -15,6 +15,25 @@ const url = (path) => `${siteConfig.domain}${path === '/' ? '/' : `${path}/`}`;
 const pathFor = (path) => (path === '/' ? '/' : `${path}/`);
 const json = (value) => JSON.stringify(value).replace(/</g, '\\u003c');
 
+export function quoteMessageFor(page) {
+  if (page.cluster === 'neighborhood') {
+    const prep = ['Vila Guilherme', 'Mooca', 'Ponte Pequena e Armênia'].includes(page.area) ? 'da' : 'do';
+    return `Olá! Preciso de uma cotação para o serviço ${prep} ${page.area} - ZaptLog.`;
+  }
+  if (page.cluster === 'service') {
+    return `Olá! Preciso de uma cotação para o serviço de ${page.h1.replace(/^Motoboy\s+(para|no|na)\s+/i, '')} - ZaptLog.`;
+  }
+  if (page.cluster === 'route') {
+    return `Olá! Preciso de uma cotação de motoboy para a rota ${page.area} - ZaptLog.`;
+  }
+  return `Olá! Preciso de uma cotação de motoboy da ZaptLog.`;
+}
+
+export function whatsappUrlFor(page) {
+  const text = quoteMessageFor(page);
+  return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(text)}`;
+}
+
 const clusterNames = {
   home: 'Central de rotas',
   neighborhood: 'Bairro e polo',
@@ -127,7 +146,7 @@ function navGroup(title, items, description) {
   </details>`;
 }
 
-function header(pages) {
+function header(page, pages) {
   const groups = navGroups
     .map((group) => {
       const items = pages.filter((page) => page.cluster === group.key);
@@ -151,7 +170,7 @@ function header(pages) {
         ${groups}
         <a class="nav-link nav-link--phone" href="https://wa.me/${siteConfig.whatsappNumber}">${siteConfig.whatsappDisplay}</a>
       </nav>
-      <a class="header-cta" href="#cotacao">Pedir cotação <span aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="${page ? whatsappUrlFor(page) : `https://wa.me/${siteConfig.whatsappNumber}`}" target="_blank" rel="noopener noreferrer">Pedir cotação <span aria-hidden="true">↗</span></a>
     </div>
     <div class="reading-progress" aria-hidden="true"><span data-reading-progress></span></div>
   </header>`;
@@ -200,7 +219,7 @@ function hero(page) {
         <h1>${esc(page.h1)}</h1>
         <p class="hero-lead">${esc(page.description)}</p>
         <div class="hero-actions">
-          <a class="button button--primary" href="#cotacao">Solicitar cotação <span aria-hidden="true">↗</span></a>
+          <a class="button button--primary" href="${whatsappUrlFor(page)}" target="_blank" rel="noopener noreferrer">Solicitar cotação <span aria-hidden="true">↗</span></a>
           <a class="button button--ghost" href="/como-solicitar-cotacao-motoboy/">Como funciona a cotação</a>
         </div>
         <ul class="hero-points" aria-label="Resumo do atendimento">
@@ -260,7 +279,8 @@ function sections(entry) {
     .join('');
 }
 
-function checklist(entry) {
+function checklist(entry, page) {
+  const ctaUrl = page ? whatsappUrlFor(page) : '#cotacao';
   return `<section class="page-checklist reveal" id="checklist">
     <p class="eyebrow">Conferência rápida</p>
     <h2>O que conferir antes da coleta</h2>
@@ -268,7 +288,7 @@ function checklist(entry) {
     <ul class="checklist-grid">
       ${entry.checklist.items.map((item, index) => `<li><span class="check-number">${String(index + 1).padStart(2, '0')}</span><span>${esc(item)}</span></li>`).join('')}
     </ul>
-    <a class="text-link" href="#cotacao">Já conferi, quero cotar <span aria-hidden="true">→</span></a>
+    <a class="text-link" href="${ctaUrl}" target="_blank" rel="noopener noreferrer">Já conferi, quero cotar no WhatsApp <span aria-hidden="true">→</span></a>
   </section>`;
 }
 
@@ -304,7 +324,8 @@ function tableOfContents(entry) {
   </nav>`;
 }
 
-function editorialAside(entry) {
+function editorialAside(entry, page) {
+  const ctaUrl = page ? whatsappUrlFor(page) : '#cotacao';
   return `<aside class="page-aside" aria-label="Resumo e navegação da página">
     <div class="aside-sticky">
       ${tableOfContents(entry)}
@@ -316,7 +337,7 @@ function editorialAside(entry) {
           <div><dt>Escopo</dt><dd>1 coleta · 1 entrega</dd></div>
           <div><dt>Cotação</dt><dd>Sob medida</dd></div>
         </dl>
-        <a class="button button--primary button--full" href="#cotacao">Pedir cotação <span aria-hidden="true">↗</span></a>
+        <a class="button button--primary button--full" href="${ctaUrl}" target="_blank" rel="noopener noreferrer">Pedir cotação <span aria-hidden="true">↗</span></a>
         <p class="aside-note">Informe as medidas do volume e os endereços. A central prepara a cotação e confirma a disponibilidade.</p>
       </div>
     </div>
@@ -368,7 +389,7 @@ function editorial(page) {
     </header>
     ${page.slug === 'conferir-medidas-bau-moto' ? calculator() : ''}
     ${sections(entry)}
-    ${checklist(entry)}
+    ${checklist(entry, page)}
     ${faq(entry)}
   </article>`;
 }
@@ -444,7 +465,7 @@ function directory(pages) {
 
 function validator(page) {
   const { bau } = operationalRules;
-  return `<section class="validator shell" id="cotacao" data-bau-validator data-page-slug="${esc(page.slug)}" data-origin="Origem: ${esc(page.slug)}" data-whatsapp-number="${siteConfig.whatsappNumber}" aria-labelledby="validator-title">
+  return `<section class="validator shell" id="cotacao" data-bau-validator data-page-slug="${esc(page.slug)}" data-origin="Origem: ${esc(page.slug)}" data-whatsapp-number="${siteConfig.whatsappNumber}" data-custom-message="${esc(quoteMessageFor(page))}" aria-labelledby="validator-title">
     <div class="validator-copy">
       <p class="eyebrow">Próximo passo</p>
       <h2 id="validator-title">Confirme o baú. A central calcula a cotação.</h2>
@@ -551,8 +572,9 @@ function schema(page) {
   });
 }
 
-function mobileCta() {
-  return `<a class="mobile-cta" href="#cotacao"><span>Pedir cotação</span><span aria-hidden="true">↗</span></a>`;
+function mobileCta(page) {
+  const ctaUrl = page ? whatsappUrlFor(page) : '#cotacao';
+  return `<a class="mobile-cta" href="${ctaUrl}" target="_blank" rel="noopener noreferrer"><span>Pedir cotação</span><span aria-hidden="true">↗</span></a>`;
 }
 
 export function renderPage(page, pages) {
@@ -565,6 +587,7 @@ export function renderPage(page, pages) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="qU-EuRe879ZJLxQ2alZt61xapVpTtXkKXWj__P2-E00">
   <title>${esc(page.title.replace('Motoboy Express SP', 'ZaptLog'))}</title>
   <meta name="description" content="${esc(page.description)}">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -585,20 +608,20 @@ export function renderPage(page, pages) {
 </head>
 <body class="cluster-${page.cluster}">
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
-  ${header(pages)}
+  ${header(page, pages)}
   ${breadcrumb(page)}
   <main id="main" tabindex="-1">
     ${hero(page)}
     ${factStrip()}
     <div class="shell page-layout">
       ${hasEditorial ? editorial(page) : ''}
-      ${hasEditorial ? editorialAside(entry) : ''}
+      ${hasEditorial ? editorialAside(entry, page) : ''}
     </div>
     ${page.path === '/' ? directory(pages) : relatedSection(page, pages)}
     ${validator(page)}
   </main>
   ${footer(pages)}
-  ${mobileCta()}
+  ${mobileCta(page)}
   <script src="/assets/site.js" defer></script>
 </body>
 </html>`;

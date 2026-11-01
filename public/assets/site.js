@@ -25,8 +25,9 @@
     checks.forEach((check) => check.addEventListener('change', update));
 
     cta.addEventListener('click', () => {
+      const intro = validator.dataset.customMessage || 'Olá, preciso de uma cotação ZaptLog.';
       const text = [
-        'Olá, preciso de uma cotação ZaptLog.',
+        intro,
         'Solicito uma coleta e uma entrega.',
         'Coleta: [endereço completo].',
         'Entrega: [endereço completo].',
